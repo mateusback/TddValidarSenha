@@ -75,13 +75,13 @@ public class ValidacaoSenhaServiceTests
     public void DeveRetornarFalseCasoTenhaEspacosEmBranco()
     {
         // Arrange
-        var senha = "senha com espaco";
+        var senha = "Senha com espaco1";
         
         // Act
         var resultado = _validacaoSenhaService.Validar(senha);
         
         // Assert
-        Assert.Contains("A senha deve conter pelo menos um caractere especial.", resultado);
+        Assert.Contains("A senha não deve conter espaços.", resultado);
 
     }
 }

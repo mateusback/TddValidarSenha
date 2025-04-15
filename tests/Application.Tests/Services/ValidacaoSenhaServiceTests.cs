@@ -82,6 +82,47 @@ public class ValidacaoSenhaServiceTests
         
         // Assert
         Assert.Contains("A senha não deve conter espaços.", resultado);
-
     }
+    
+    [Theory (DisplayName = "Deve retornar senha valida caso tenha todos os requisitos")]
+    [InlineData("Senha123!")]
+    [InlineData("Senha@123")]
+    [InlineData("Senha#123")]
+    [InlineData("Senha$123")]
+    [InlineData("Senha%123")]
+    [InlineData("Senha^123")]
+    [InlineData("Senha&123")]
+    [InlineData("Senha*123")]
+    [InlineData("Senha(123)")]
+    [InlineData("Senha)123!")]
+    public void DeveRetornarTrueCasoTenhaTodosOsRequisitos(string senha)
+    {
+        // Act
+        var resultado = _validacaoSenhaService.Validar(senha);
+        
+        // Assert
+        Assert.Empty(resultado);
+    }
+    
+    [Theory(DisplayName = "Deve retornar senha invalida caso falhe em algum requisito")]
+    [InlineData("Senha123")]
+    [InlineData("senha123!")]
+    [InlineData("SENHA123!")]
+    [InlineData("Senha!")]
+    [InlineData("Senha 123!")]
+    [InlineData("Senha@")]
+    [InlineData("Senha#")]
+    [InlineData("Senha$")]
+    [InlineData("Senha%")]
+    [InlineData("Se nha^")]
+    [InlineData("Senha &")]
+    public void DeveRetornarFalseCasoFalheEmAlgumRequisito(string senha)
+    {
+        // Act
+        var resultado = _validacaoSenhaService.Validar(senha);
+        
+        // Assert
+        Assert.NotEmpty(resultado);
+    }
+    
 }

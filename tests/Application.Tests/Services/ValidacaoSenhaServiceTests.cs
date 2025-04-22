@@ -1,4 +1,5 @@
 ﻿using Application.Services;
+using Application.Utils;
 
 namespace Application.Tests.Services;
 
@@ -16,7 +17,7 @@ public class ValidacaoSenhaServiceTests
         var resultado = _validacaoSenhaService.Validar(senha);
         
         // Assert
-        Assert.Contains("A senha deve ter pelo menos 8 caracteres.", resultado);
+        Assert.Contains(MensagemUtil.SenhaPequena, resultado);
     }
 
     [Fact(DisplayName = "Deve retornar senha invalida caso não tenha letras maiusculas")]
@@ -29,7 +30,7 @@ public class ValidacaoSenhaServiceTests
         var resultado = _validacaoSenhaService.Validar(senha);
         
         // Assert
-        Assert.Contains("A senha deve conter pelo menos uma letra maiúscula.", resultado);
+        Assert.Contains(MensagemUtil.SenhaSemMaiuscula, resultado);
     }
 
     [Fact(DisplayName = "Deve retornar senha invalida caso não tenha letras minusculas")]
@@ -42,7 +43,7 @@ public class ValidacaoSenhaServiceTests
         var resultado = _validacaoSenhaService.Validar(senha);
         
         // Assert
-        Assert.Contains("A senha deve conter pelo menos uma letra minúscula.", resultado);
+        Assert.Contains(MensagemUtil.SenhaSemMinuscula, resultado);
     }
 
     [Fact(DisplayName = "Deve retornar senha invalida caso não tenha numeros")]
@@ -55,7 +56,7 @@ public class ValidacaoSenhaServiceTests
         var resultado = _validacaoSenhaService.Validar(senha);
         
         // Assert
-        Assert.Contains("A senha deve conter pelo menos um número.", resultado);
+        Assert.Contains(MensagemUtil.SenhaSemNumero, resultado);
     }
 
     [Fact(DisplayName = "Deve retornar senha invalida caso não tenha caracteres especiais")]
@@ -68,7 +69,7 @@ public class ValidacaoSenhaServiceTests
         var resultado = _validacaoSenhaService.Validar(senha);
         
         // Assert
-        Assert.Contains("A senha deve conter pelo menos um caractere especial.", resultado);
+        Assert.Contains(MensagemUtil.SenhaSemCaractereEspecial, resultado);
     }
 
     [Fact(DisplayName = "Deve retornar senha invalida caso tenha espaços em branco")]
@@ -81,7 +82,7 @@ public class ValidacaoSenhaServiceTests
         var resultado = _validacaoSenhaService.Validar(senha);
         
         // Assert
-        Assert.Contains("A senha não deve conter espaços.", resultado);
+        Assert.Contains(MensagemUtil.SenhaComEspacos, resultado);
     }
     
     [Theory (DisplayName = "Deve retornar senha valida caso tenha todos os requisitos")]

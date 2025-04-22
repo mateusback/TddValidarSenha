@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using Application.Utils;
 
 namespace Application.Services;
 
@@ -6,12 +7,12 @@ public class ValidacaoSenhaService
 {
     private readonly Dictionary<string, string> _regras = new()
     {
-        { "^.{8,}$", "A senha deve ter pelo menos 8 caracteres." },
-        { ".*[A-Z].*", "A senha deve conter pelo menos uma letra maiúscula." },
-        { ".*[a-z].*", "A senha deve conter pelo menos uma letra minúscula." },
-        { @".*\d.*", "A senha deve conter pelo menos um número." },
-        { @".*[\W_].*", "A senha deve conter pelo menos um caractere especial." },
-        { @"^\S*$", "A senha não deve conter espaços." }
+        { "^.{8,}$", MensagemUtil.SenhaPequena },
+        { ".*[A-Z].*", MensagemUtil.SenhaSemMaiuscula },
+        { ".*[a-z].*", MensagemUtil.SenhaSemMinuscula },
+        { @".*\d.*", MensagemUtil.SenhaSemNumero },
+        { @".*[\W_].*", MensagemUtil.SenhaSemCaractereEspecial },
+        { @"^\S*$", MensagemUtil.SenhaComEspacos }
     };
     
     public IReadOnlyList<string> Validar(string senha)

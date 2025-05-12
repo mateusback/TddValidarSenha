@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "src\Applicat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Tests", "tests\Application.Tests\Application.Tests.csproj", "{11D77A6B-DEB4-4C5F-9340-498038A8402E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrossCutting", "src\CrossCutting\CrossCutting.csproj", "{699A27B3-2592-42CA-A28C-0A1278D5DAB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -16,6 +18,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DA30AF1E-3467-41D7-8032-2A075DBE18CD} = {C0C516B7-0D41-43AC-8D8A-78FFB73497B4}
 		{11D77A6B-DEB4-4C5F-9340-498038A8402E} = {0A69FFCD-A8FA-481A-B772-CFB18B43BC1B}
+		{699A27B3-2592-42CA-A28C-0A1278D5DAB5} = {C0C516B7-0D41-43AC-8D8A-78FFB73497B4}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DA30AF1E-3467-41D7-8032-2A075DBE18CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -26,5 +29,9 @@ Global
 		{11D77A6B-DEB4-4C5F-9340-498038A8402E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{11D77A6B-DEB4-4C5F-9340-498038A8402E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{11D77A6B-DEB4-4C5F-9340-498038A8402E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{699A27B3-2592-42CA-A28C-0A1278D5DAB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{699A27B3-2592-42CA-A28C-0A1278D5DAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{699A27B3-2592-42CA-A28C-0A1278D5DAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{699A27B3-2592-42CA-A28C-0A1278D5DAB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
